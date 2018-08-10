@@ -43,15 +43,10 @@ const capitalizeFirstLetter = string => {
 const handleError = (type: string, msg: string) => {
   switch (type) {
     case forbidden:
-      console.log("Forbidden runs")
       throw new ForbiddenError(msg)
-
     case badRequest:
-      console.log("Bad req runs")
       throw new BadRequestError(msg)
-
     case notFound:
-      console.log("Not found runs")
       throw new NotFoundError(msg)
   }
 }
