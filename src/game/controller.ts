@@ -9,7 +9,8 @@ import {
   NotFoundError
 } from "routing-controllers"
 import Game from "./entity"
-import { randomColor, defaultBoard, validateInput } from "../lib/game"
+import { randomColor, defaultBoard } from "../lib/game"
+import { validateInput } from "./validation"
 
 @JsonController()
 export default class GameController {
@@ -30,7 +31,7 @@ export default class GameController {
   @Post("/games")
   @HttpCode(201)
   createGame(@Body() game: Game) {
-    game.board = defaultBoard
+    game.board = JSON.parse(JSON.stringify(defaultBoard))
     game.color = randomColor()
     return game.save()
   }
