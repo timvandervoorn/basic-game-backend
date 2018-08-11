@@ -5,7 +5,7 @@ import { IsString, MinLength } from "class-validator"
 @Entity()
 export default class Game extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: number
+  id?: number
 
   @IsString()
   @MinLength(1, {
@@ -18,5 +18,5 @@ export default class Game extends BaseEntity {
   color: string
 
   @Column("simple-json", { nullable: false })
-  board: JSON
+  board: {}
 }

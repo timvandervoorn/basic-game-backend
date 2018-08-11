@@ -31,7 +31,7 @@ export default class GameController {
   @Post("/games")
   @HttpCode(201)
   createGame(@Body() game: Game) {
-    game.board = JSON.parse(JSON.stringify(defaultBoard))
+    game.board = defaultBoard
     game.color = randomColor()
     return game.save()
   }

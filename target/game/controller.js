@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const entity_1 = require("./entity");
 const game_1 = require("../lib/game");
+const validation_1 = require("./validation");
 let GameController = class GameController {
     async getGames() {
         const games = await entity_1.default.find();
@@ -37,7 +38,7 @@ let GameController = class GameController {
         const game = await entity_1.default.findOne(id);
         if (!game)
             throw new routing_controllers_1.NotFoundError(`Game with ID ${id} was not found`);
-        game_1.validateInput(game, update);
+        validation_1.validateInput(game, update);
         return entity_1.default.merge(game, update).save();
     }
 };
