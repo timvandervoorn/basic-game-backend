@@ -65,7 +65,6 @@ __decorate([
 ], GameController.prototype, "createGame", null);
 __decorate([
     routing_controllers_1.Patch("/games/:id"),
-    routing_controllers_1.HttpCode(202),
     __param(0, routing_controllers_1.Param("id")), __param(1, routing_controllers_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),

@@ -37,7 +37,6 @@ export default class GameController {
   }
 
   @Patch("/games/:id")
-  @HttpCode(202)
   async updateGame(@Param("id") id: number, @Body() update: Partial<Game>) {
     const game = await Game.findOne(id)
     if (!game) throw new NotFoundError(`Game with ID ${id} was not found`)
